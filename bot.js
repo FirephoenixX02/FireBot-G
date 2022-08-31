@@ -25,34 +25,14 @@ app.disable("x-powered-by");
 // Bot Variables
 
 const fs = require("fs");
-const { Client, Intents, Collection, MessageEmbed } = require("discord.js");
-const { GiveawaysManager } = require("discord-giveaways");
+const { Client, Collection, Embed } = require("guilded.js");
 const { addAbortSignal } = require("stream");
 
 //Intents needed for accessing specific information's like Rich Presence or Invite Count
 
-const client = new Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_INVITES,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_VOICE_STATES,
-    Intents.FLAGS.GUILD_PRESENCES,
-    Intents.FLAGS.GUILD_INTEGRATIONS,
-  ],
-  partials: ["CHANNEL", "MESSAGE"],
-});
+const client = new Client({ token: process.env.BOT_TOKEN });
 
 client.commands = new Collection();
-client.giveaways = new GiveawaysManager(client, {
-  storage: "./resources/giveaways.json",
-  updateCountdownEvery: 5000,
-  embedColor: "#ed4245",
-  reaction: "🎉",
-  botsCanWin: false,
-});
 
 const commandFiles = fs
   .readdirSync("./commands")
@@ -95,7 +75,7 @@ client.on("messageDelete", (msg) => {
   if (msg.mentions.users.first()) {
     if (msg.mentions.users.first().bot) return;
 
-    const embed = new MessageEmbed()
+    const embed = new Embed()
       .setTitle("Ghost Ping")
       .setDescription(
         `${msg.author} ghost pinged ${msg.mentions.users.first()}`
@@ -113,7 +93,7 @@ client.on("messageUpdate", async (oldMessage) => {
   if (oldMessage.mentions.users.first()) {
     if (oldMessage.mentions.users.first().bot) return;
 
-    const embed = new MessageEmbed()
+    const embed = new Embed()
       .setTitle("Ghost Ping")
       .setDescription(
         `${oldMessage.author} ghost pinged ${oldMessage.mentions.users.first()}`
@@ -139,7 +119,6 @@ client.on("guildMemberAdd", (member) => {
 });
 
 // Bot Login
-client.login(process.env.BOT_TOKEN);
 
 // Web Dashboard Access Log
 
