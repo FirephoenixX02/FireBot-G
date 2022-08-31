@@ -1,5 +1,5 @@
 # FireBot
-A Discord Bot written with Discord.js for my Discord Server
+A Guilded Bot written with Guilded.js for my Guilded Server
  <br />
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=FirephoenixX02_FireBot&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=FirephoenixX02_FireBot)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=FirephoenixX02_FireBot&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=FirephoenixX02_FireBot)
