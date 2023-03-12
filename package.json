@@ -1,0 +1,34 @@
+{
+  "name": "firebot-guilded",
+  "version": "1.0.0",
+  "description": "FireBot for Guilded.gg",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "devStart": "nodemon bot.js --ignore 'resources/*'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "NieGestorben",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@discordjs/collection": "^1.2.0",
+    "@guildedjs/rest": "^2.9.1",
+    "@guildedjs/webhook-client": "^0.4.2",
+    "@guildedjs/ws": "^1.5.1",
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security",
+    "guilded.js": "^0.15.0",
+    "https": "^1.0.0",
+    "imdb-api": "^4.4.1",
+    "mathjs": "^11.4.0",
+    "ms": "^2.1.3",
+    "nodemon": "^2.0.20",
+    "os": "^0.1.2"
+  }
+}
